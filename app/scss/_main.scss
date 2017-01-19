@@ -1,0 +1,773 @@
+html {
+	font-size: 100%;
+}
+
+body {
+	font-family: $font-family-sans-serif !important;
+	font-size: $font-size-base;
+	color: $text-color;
+	font-weight: normal;
+	overflow-x: hidden !important;
+	line-height: $line-height-base;
+	background: $dirt-white;
+}
+
+/* Internet Explorer 10 in Windows 8 and Windows Phone 8 Bug fix */
+@-webkit-viewport {
+	width: device-width;
+}
+
+
+@-moz-viewport {
+	width: device-width;
+}
+
+
+@-ms-viewport {
+	width: device-width;
+}
+
+
+@-o-viewport {
+	width: device-width;
+}
+
+
+@viewport {
+	width: device-width;
+}
+
+
+/* Other fixes*/
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	&:before, &:after {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+}
+
+i {
+	vertical-align: middle;
+}
+
+ul, ol {
+	padding-left: 0 !important;
+}
+
+li {
+	list-style: none;
+}
+
+::-moz-selection, ::selection, ::-moz-selection, ::-webkit-selection {
+	background: $orange;
+	color: $white;
+}
+
+a {
+	color: $link-color;
+	@include transitions;
+	&:hover {
+		text-decoration: none;
+		color: $link-hover-color;
+	}
+}
+
+p {
+	line-height: $line-height-base;
+	margin-bottom: 15px;
+}
+
+.full-width {
+	width: 100%;
+	margin: auto;
+}
+
+/*---------------------------------------
+ **	 TYPOGRAPHY -----
+-----------------------------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+h1 {
+	font-size: 55px;
+}
+
+h2 {
+	font-size: 45px;
+	line-height: 55px;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+h4 {
+	font-size: 18px;
+}
+
+h5 {
+	font-size: 17px;
+}
+
+h6 {
+	font-size: 16px;
+}
+
+label{
+	font-weight:600; 
+	font-size: 16px;
+}
+
+/*---------------------------------------
+ **	 BUTTONS -----
+-----------------------------------------*/
+
+.red-btn, 
+.green-btn, 
+.blue-btn, 
+.yellow-btn,
+.gray-btn{
+	color: $white;
+	font-weight:600;
+	border-color: transparent;
+	border-bottom: 2px solid $black;
+	@include transitions;
+}
+
+.red-btn {
+	background: $red;
+	border-bottom-color: darken($red,5%);
+	&:hover,&:focus{
+		color: $white;
+		background: darken($red,5%);
+	}
+}
+
+.green-btn {
+	background: $green-base;
+	border-bottom-color: darken($green-base,5%);
+	&:hover,&:focus{
+		color: $white;
+		background: darken($green-base,5%);
+	}
+}
+
+.blue-btn {
+	background: $blue-dark;
+	border-bottom-color: darken($blue-dark,15%);
+	&:hover,&:focus{
+		color: $white;
+		background: darken($blue-dark,15%);
+	}
+}
+
+.yellow-btn {
+	background: $yellow;
+	border-bottom-color: darken($yellow,15%);
+	&:hover,&:focus{
+		color: $white;
+		background: darken($yellow,15%);
+	}
+}
+.gray-btn {
+	background: $gray-base;
+	border-bottom-color: darken($gray-base,15%);
+	&:hover,&:focus{
+		color: $white;
+		background: darken($gray-base,15%);
+	}
+}
+
+/*---------------------------------------
+ **	 COLORS -----
+-----------------------------------------*/
+
+/** BACKGROUNDS **/
+
+.red-bg {
+	background: $red;
+}
+
+.green-bg {
+	background: $green-base;
+}
+
+.blue-bg {
+	background: $blue-dark;
+}
+
+.yellow-bg {
+	background: $yellow;
+}
+
+.dark-bg {
+	background: $gray-dark;
+}
+
+.white-bg {
+	background: $white;
+}
+
+/** FOR TEXTS AND ICON FONTS **/
+
+.red-text {
+	color: $red;
+}
+
+.green-text {
+	color: $green-base;
+}
+
+.blue-text {
+	color: $blue-dark;
+}
+
+.yellow-text {
+	color: $yellow;
+}
+
+.dark-text {
+	color: $gray-dark;
+}
+
+.white-text {
+	color: $white;
+}
+
+/*---------------------------------------
+ **	 BORDER BOTTOMS -----
+-----------------------------------------*/
+
+.white-border-bottom:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 50%;
+	height: 2px;
+	background: $dirt-white;
+	bottom: -9px;
+	left: 25%;
+}
+
+.dark-border-bottom:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 50%;
+	height: 2px;
+	background: $gray-dark;
+	bottom: -9px;
+	left: 25%;
+}
+
+.red-border-bottom:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 75%;
+	height: 2px;
+	background: $red;
+	bottom: -9px;
+	left: 12.5%;
+}
+
+.green-border-bottom:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 75%;
+	height: 2px;
+	background: $green-base;
+	bottom: -9px;
+	left: 12.5%;
+}
+
+.blue-border-bottom:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 75%;
+	height: 2px;
+	background: $blue-dark;
+	bottom: -9px;
+	left: 12.5%;
+}
+
+.yellow-border-bottom:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 75%;
+	height: 2px;
+	background: $yellow;
+	bottom: -9px;
+	left: 12.5%;
+}
+
+/*---------------------------------------
+ **	 SECTION HEADERS -----
+-----------------------------------------*/
+
+.section-header {
+	text-align: center;
+	padding-bottom: 75px;
+	h2 {
+		padding-bottom: 10px;
+		line-height: 40px;
+		position: relative;
+		display: inline-block;
+	}
+	h6 {
+		font-size: 16px;
+	}
+}
+
+/* PRE LOADER */
+
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: $white;
+	z-index: 99999;
+	height: 100%;
+	width: 100%;
+	overflow: hidden !important;
+}
+
+.status {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background-image: url(../images/loading.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: -100px 0 0 -100px;
+}
+
+/*---------------------------------------
+=========================================
+ **	 SECTION STYLES -----
+=========================================
+-----------------------------------------*/
+
+/*---------------------------------------
+ **	 SECTION:	HOME -----
+-----------------------------------------*/
+
+.header {
+	overflow: hidden;
+	@include relative;
+	@media only screen and (min-width: $screen-md){
+		min-height: 875px;
+	}
+	#header-bar{
+		height:10px; 
+		background:$orange;
+	}
+}
+
+/*----	SECTION:	HOME > TOP BAR	 ----*/
+#main-nav {
+	width: 100%;
+	z-index: 1000;
+	min-height: 75px;
+	@include absolute;
+	@include clearfix;
+	&.fixed {
+		position: fixed !important;
+		top: 0;
+	}
+}
+.navbar {
+	background: $white;
+	overflow: hidden;
+	border: 0;
+	border-radius: 0 !important;
+	text-align: left;
+	&.navbar-inverse{
+		.navbar-collapse, 
+		.navbar-form{
+			border-color: transparent;
+		}
+		.container-fluid{
+			max-width: 1170px;
+			margin: 0 auto;
+		}
+		.navbar-toggle {
+			border: 0;
+			background-color: $gray-base;
+			margin-top: 23px;
+			&:hover, &:focus {
+				background-color: $gray-dark;
+				@include opacity(1);
+			}
+		}
+		.navbar-collapse{
+			@media only screen and (max-width: $screen-md){
+				padding-bottom: 20px;
+			}
+		}
+		.navbar-nav{
+			margin: 0;
+			@media only screen and (min-width: $screen-md){
+				display:inline-block; 
+				vertical-align:middle;
+				margin: 0;
+			}
+			> li {
+				display: inline-block;
+				margin-top: 20px;
+				margin-right: 40px;
+				@media only screen and (max-width: $screen-md){
+					margin-top: 0;
+					margin-right: 30px;
+				}
+				&:last-child {
+					margin-right: 0 !important;
+				}
+				&.current {
+					a {
+						color: $red !important;
+						position: relative;
+						outline: none;
+					}
+					&:before {
+						position: absolute;
+						margin: auto;
+						z-index: 1;
+						content: "";
+						width: 75%;
+						height: 2px;
+						background: $red;
+						bottom: 0px;
+						left: 12.5%;
+					}
+				}
+				> a {
+					color: $gray-dark;
+					padding: 18px 0px;
+					line-height: 35px;
+					&:hover,
+					&:focus {
+						color: $red;
+						outline: none;
+					}
+				}
+			}
+		}
+		.search-form{
+			@include relative;
+			@media only screen and (min-width: $screen-md){
+				top: 34px;
+				float: right;
+				@include relative;
+			}
+			@media only screen and (max-width: $screen-md - 1){
+				width: 100%;
+			}
+			.form-control{
+				border-color: rgba(155,155,155,0.5); 
+				height:40px;
+				background: no-repeat right center url(../images/search-icon.png);
+				padding-right: 40px;
+				width: 100%;
+				margin-right: 0;
+				@media only screen and (min-width: $screen-xs) {
+					min-width: 0; 
+					width: $screen-xs - 200;
+					max-width: $screen-xs - 200;
+					margin-right: 10px;
+				}
+				@media only screen and (min-width: $screen-sm) {
+					min-width: 0; 
+					width: $screen-sm - 200;
+					max-width: $screen-sm - 200;
+					margin-right: 10px;		
+				}
+				@media only screen and (min-width: $screen-md){
+					min-width: 0; 
+					max-width: 170px;
+					margin-right: 10px;
+				}
+				@media only screen and (min-width: $screen-lg){
+					min-width: 0; 
+					max-width: 230px;
+					margin-right: 10px;		
+				}
+			}
+			.green-btn{
+				border-bottom-width: 5px;
+			}
+		}
+	} 
+	.navbar-brand {
+		height: 120px;
+		padding: 0;
+		margin-right: 55px;
+		@include relative;
+		img{
+			transform: translate(0%, 25%);
+		}
+		@media only screen and (min-width: $screen-md){
+			&:after{
+				content: " ";
+				width: 1px;
+				height: 70px;
+				top: 20px;
+				bottom: 0;
+				right: -16px;
+				background: $gray-light;
+				@include absolute;
+			}
+		}
+	}
+}
+
+
+
+/*----	SECTION:	HOME > INTRO AND SHORT MSGS	 ----*/
+
+.intro {
+	text-align: center;
+	color: $gray-base;
+	margin-bottom: 10px;
+	line-height: 65px;
+	z-index: 0;
+	font-size: 32px;
+	font-weight: 800;
+}
+
+/* Short Messages */
+
+.bottom-message-section {
+	margin-top: 14%;
+	position: relative;
+}
+
+.short-text {
+	margin: auto;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.7);
+	text-transform: uppercase;
+}
+.text-intro{
+	font-size: 22px; 
+	margin-bottom: 58px;
+}
+
+/*---------------------------------------
+ **	 SECTION:	DONATION -----
+-----------------------------------------*/
+
+#donation{
+	.intro{
+		margin-top: 5%;
+	}
+
+	.box{
+		background:$white; 
+		padding: 40px 235px 35px 65px; 
+		margin-bottom: 50px; 
+		min-height: 510px; 
+		@include relative;
+		.tt{
+			font-size:26px; 
+			font-weight: 400; 
+			margin-bottom: 35px;
+			color: $green-base;
+		}
+	}
+	.form-control{
+		cursor: pointer;
+		border:2px solid $gray-base;
+		padding: 5px 20px;
+	}
+	.i-want-to-donate{
+		margin-top: 55px; 
+		margin-bottom: 30px;
+		label{
+			margin-bottom: 20px;
+		}
+		.buttons{
+			margin-top: 10px; 
+			margin-bottom: 25px;
+		}
+		.form-control{
+			padding-left: 30px;
+			background: $white url(../images/gbp-icon.png) no-repeat left center;
+		}
+	}
+	.donation-value{
+		margin-bottom: 15px;
+		.btn-group{
+			display: inline-block; 
+			vertical-align: top;
+			.btn{
+				vertical-align: baseline;
+				font-size:1.35em; 
+				font-weight:600; 
+				border: 2px solid $gray-base; 
+				background: $white; 
+				width: 65px;
+				padding: 8px 0;
+				margin-right: 10px;
+				&:last-child{
+					margin-right: 0;
+				}
+				&.active{
+					background: $green-base;
+					border-color: $green-base;
+					color: $white;
+					box-shadow: 0 0 0 transparent;
+				}
+			}
+		}
+		label{
+			display: inline-block; 
+			padding: 0 15px;
+			vertical-align: inherit;
+		}
+		.form-control{
+			font-size:1.35em; 
+			border:2px solid $gray-base; 
+			max-width: 180px; 
+			display: inline-block;
+		}
+	}
+	.donate-btn{
+		padding: 13px 45px; 
+		border-bottom-width: 8px;
+	}
+	#animal-holder{
+		top:0; 
+		right: 0; 
+		bottom: 0; 
+		width: 180px; 
+		background: no-repeat top center;
+		background-size: cover;
+		@include absolute;
+		&.giraffe{
+			background-image: url(../images/giraffe.png);
+		}
+		&.tiger{
+			background-image: url(../images/tiger.png);
+		}
+		&.rhino{
+			background-image: url(../images/rhino.png);
+		}
+	}
+}
+
+/*---------------------------------------
+ **	 SECTION:	WHAT WE DO -----
+-----------------------------------------*/
+
+.what-we-do {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	overflow: hidden;
+	background: $white;
+	.what-we-do-holder p{
+		font-size:16px;
+	}
+	.button-holder{
+		margin: 20px 0;
+		.btn{
+			margin-right: 5px;
+		}
+	}
+}
+
+/* ON HOVER COLORED ROUNDED CIRCLE AROUND ICONS */
+
+.red, .green, .blue, .yellow {
+	@include transitions(all,.2s,ease-in-out);
+}
+
+.red:hover .service-icon {
+	border: 10px solid $red;
+}
+
+.green:hover .service-icon {
+	border: 10px solid $green-base;
+}
+
+.blue:hover .service-icon {
+	border: 10px solid $blue-dark;
+}
+
+.yellow:hover .service-icon {
+	border: 10px solid $yellow;
+}
+
+
+/* ----------------------------------------*/
+/*	 SECTION:	FOOTER */
+/* ----------------------------------------*/
+
+footer {
+	padding-top: 30px;
+	padding-bottom: 10px;
+	background: $gray-base;
+	color: $white;
+	h4{
+		font-weight: 800;
+		font-size: .9em;
+		margin-bottom: 30px;
+	}
+	a{
+		color: $white;
+		&:hover{
+			color: $white;
+			text-decoration: underline;
+		}
+	}
+	li{
+		margin-bottom: 15px;
+	}
+	.col-footer{
+		margin-bottom: 20px;
+	}
+	.icon-holder{
+		a{
+			display: inline-block;
+			margin-right: 10px;
+			@include transitions;
+			&:hover{
+				@include opacity(.5);
+			}
+		}
+	}
+	.logo-footer{
+		> img{
+			margin-bottom: 20px;
+		}
+		> p{
+			padding-left: 105px;
+			line-height: 2;
+		}
+	}
+}

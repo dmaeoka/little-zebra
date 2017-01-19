@@ -1,0 +1,189 @@
+@mixin clearfix {
+    &:before, &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin hoverActiveFocus() {
+    &:hover, &:active, &:focus {
+        @content;
+    }
+}
+
+@mixin screen-reader-text() {
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+}
+
+@mixin underlinedLink() {
+	font-weight: 400;
+	text-decoration: underline;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+@mixin absolute($z:3){
+    position:absolute; 
+    z-index:$z;
+}
+@mixin relative($z:2){
+    position:relative; 
+    z-index:$z;
+}
+@mixin fixed($z:4){
+    position:fixed; 
+    z-index:$z;
+}
+@mixin bgCover{
+    -webkit-background-size:cover;
+            background-size:cover;
+}
+@mixin backgroundSize($property:cover){
+    -webkit-background-size:$property;
+       -moz-background-size:$property;
+            background-size:$property;
+}
+@mixin boxShadow($ts){
+    -webkit-box-shadow:$ts;
+       -moz-box-shadow:$ts;
+            box-shadow:$ts;
+}
+@mixin transitions($property:all,$ms:200ms,$timing:linear){
+    -webkit-transition:$property $ms $timing;
+       -moz-transition:$property $ms $timing;
+         -o-transition:$property $ms $timing;
+            transition:$property $ms $timing;
+}
+@mixin opacity($opacity){
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity*100)";
+    filter:alpha(opacity=$opacity*100);
+    opacity:$opacity;
+}
+@mixin inline-block{
+    display:inline-block; 
+    *display:inline; 
+    zoom:1;
+}
+@mixin linearGradient($top, $bottom){
+    background:$top;
+    background:-moz-linear-gradient(top,  $top 0%, $bottom 100%);
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom));
+    background:-webkit-linear-gradient(top,  $top 0%,$bottom 100%);
+    background:-o-linear-gradient(top,  $top 0%,$bottom 100%);
+    background:-ms-linear-gradient(top,  $top 0%,$bottom 100%);
+    background:linear-gradient(to bottom,  $top 0%,$bottom 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 );
+}
+@mixin radio-variant($parent, $color) {
+	#{$parent} input[type="radio"]{
+		+ label{
+			&::after{
+				background-color: $color;
+			}
+		}
+		&:checked + label{
+			&::before {
+				border-color: $color;
+			}
+			&::after{
+				background-color: $color;
+			}
+		}
+	}
+}
+@mixin checkbox-variant($parent, $color) {
+	#{$parent} input[type="checkbox"]:checked + label,
+	#{$parent} input[type="radio"]:checked + label {
+		&::before {
+			background-color: $color;
+			border-color: $color;
+		}
+		&::after{
+			color: #fff;
+		}
+	}
+}
+
+@mixin checkbox-variant-indeterminate($parent, $color) {
+	#{$parent} input[type="checkbox"]:indeterminate + label,
+	#{$parent} input[type="radio"]:indeterminate + label {
+		&::before {
+			background-color: $color;
+			border-color: $color;
+		}
+		&::after{
+			background-color: #fff;
+		}
+	}
+}
+@mixin btn-color($color, $colorHover:#fff, $darken:5%, $fontColor:$white){
+	color: $white;
+	background-color: $color; 
+	border-color:darken($color,$darken);
+	&:hover,
+	&:focus,
+	&.active{
+		color: $fontColor;
+		border-color:$colorHover;
+		background-color: $colorHover;
+	}
+
+}
+@mixin text-ellipsis{
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+@mixin arrowTC($bg:#fff,$width:10px){
+	&:after {
+		bottom: 100%;
+		left: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		pointer-events: none;
+		border-color: rgba(136, 183, 213, 0);
+		border-bottom-color: $bg;
+		border-width: $width;
+		margin-left: -$width;
+		@include absolute;
+	}
+}
+@mixin arrowTR($bg:#fff,$width:10px,$right:5px){
+	&:after {
+		bottom: 100%;
+		right: $right;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		pointer-events: none;
+		border-color: rgba(136, 183, 213, 0);
+		border-bottom-color: $bg;
+		border-width: $width;
+		@include absolute;
+	}
+}
+@mixin arrowRC($bg:#fff,$width:10px,$top:50%){
+	&:after{
+		left: 100%;
+		top: $top;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-color: rgba(0, 0, 0, 0);
+		border-left-color: $bg;
+		border-width: $width;
+		margin-top: -($width);
+	}
+}
