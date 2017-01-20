@@ -21,8 +21,6 @@
 		<script src="js/html5shiv.min.js"></script>
 		<script src="js/respond.min.js"></script>
 	<![endif]-->
-	<!-- JQUERY -->	
-	<script src="js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -95,21 +93,21 @@
 								<div class="donation-value">
 									<div class="btn-group" data-toggle="buttons">
 										<label class="btn btn-lg">
-											<input type="radio" name="value_1" value="3" autocomplete="off">
+											<input type="radio" value="3" autocomplete="off">
 											<i class="fa fa-gbp"></i> 3
 										</label>
 										<label class="btn btn-lg">
-											<input type="radio" name="value_1" value="5" autocomplete="off"> 
+											<input type="radio" value="5" autocomplete="off"> 
 											<i class="fa fa-gbp"></i> 5
 										</label>
 										<label class="btn btn-lg">
-											<input type="radio" name="value_1" value="10" autocomplete="off"> 
+											<input type="radio" value="10" autocomplete="off"> 
 											<i class="fa fa-gbp"></i> 10
 										</label>
 									</div>
-									<label for="value_2">or</label>
-									<input class="form-control input-lg" id="value_2" type="number" name="value_2" min="11" max="999999999" step="1">
-								</div>								
+									<label for="donation_value">or</label>
+									<input class="form-control input-lg" id="donation_value" type="number" name="donation_value" min="11" max="999999999" step="1" required oninvalid="this.setCustomValidity('Please, select a value on the left, or type a donation value greater than &pound;11! Thanks!')">
+								</div>
 								<span class="lz-checkbox">
 									<input type="checkbox" id="monthly" name="monthly" value="yes">
 									<label for="monthly">I want to do a monthly donation</label>

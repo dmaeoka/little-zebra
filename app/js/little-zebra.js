@@ -35,7 +35,6 @@
 	         scrollThreshold: 0.5,
 	         filter: ':not(.external)'
 	     });
-
 	     // Sticky Header - http://jqueryfordesigners.com/fixed-floating-elements/				 
 	     var top = $('#main-nav').offset().top - parseFloat($('#main-nav').css('margin-top').replace(/auto/, 0));
 
@@ -60,52 +59,53 @@
 	     });
 
 	     $(window).resize();
-
-	     var $val_animal    = $('#animal').val();
+	});
+	 
+	 $(document).ready(function() {
+	     var $animal = $('#animal');
 	     var $animal_holder = $('#animal-holder');
-	     var $buttons       = $('.donation-value .btn-group .btn');
-	     var $donation      = $('#donation_value');
-	     
-	     $('#animal-holder').removeClass().addClass($val_animal);
-	     $(document).on('change','#animal',function(){
+	     var $buttons = $('.donation-value .btn-group .btn');
+	     var $donation = $('#donation_value');
+
+	     $animal_holder.removeClass().addClass($animal.val());
+	     $animal.on('change',function(){
 	     	$this = $(this);
-	     	$animal_holder.removeClass().addClass($this.val());
+	     	$('#animal-holder').removeClass().addClass($this.val());
 	     });
 
-	     $(document).on('submit','#form-donation',function(){
-	     	if ($donation.val() != '') {
-	     		return true;
-	     	} else {
-	     		alert('Want to help us?? Please, select a value to donate!');
-	     		return false;
-	     	}
+	     $('#form-donation').on('submit',function(){
+			if ($donation.val() != '') {
+				return true
+			} else {
+				alert('Want to help us?? Please, select a value to donate!');
+			}
+			return false;
 	     });
 
-	     
-	     $(document).on('click','.donation-value .btn-group .btn',function(){
+	     $buttons.on('click',function(){
 	     	$this = $(this);
 	     	$val = $this.find('input').val();
 	     	$donation.val($val);
 	     	$donation.attr('min',$val);
+	     	console.log($donation.attr('min'));
 	     });
 
-	     $(document).on('blur','#donation_value',function(){
-	     	var $this  = $(this);
-	     	var $val   = $(this).val();
-	     	
-	     	$buttons.each(function(i){
-	     		var $btn = $(this);
-	     		if ($btn.is('checked') === false) {
-	     			$donation.attr('min',11);
-	     		}
-	     	})
-
-	     	if (parseInt($val)>10) {
-	     		$buttons.each(function(){
-					$(this).button('reset').removeClass('active');
-				});
-	     	}
-	     });
+	     $donation.
+		     on('focus',function(){
+		     	var $this  = $(this);
+		     	var $val   = $(this).val();
+		     	
+		     	$buttons.each(function(i){
+		     		var $btn = $(this);
+		     		var $input = $btn.find('input');
+		     		
+		     		if ($input.is(':checked') === true) {
+		     			$btn.button('reset').removeClass('active');
+		     			$this.val(11);
+		     			$donation.attr('min',11);
+		     		}
+		     	});
+		     })
 	 });
 	 
 	 /*=================================
