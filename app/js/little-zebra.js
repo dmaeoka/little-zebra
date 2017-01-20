@@ -61,31 +61,47 @@
 
 	     $(window).resize();
 
-	     var val_animal = $('#animal').val();
-	     $('#animal-holder').removeClass().addClass(val_animal);
+	     var $val_animal    = $('#animal').val();
+	     var $animal_holder = $('#animal-holder');
+	     var $buttons       = $('.donation-value .btn-group .btn');
+	     var $donation      = $('#donation_value');
+	     
+	     $('#animal-holder').removeClass().addClass($val_animal);
 	     $(document).on('change','#animal',function(){
 	     	$this = $(this);
-	     	$('#animal-holder').removeClass().addClass($this.val());
+	     	$animal_holder.removeClass().addClass($this.val());
 	     });
 
 	     $(document).on('submit','#form-donation',function(){
-	     	var value_1 = $('input[name=value_1]:checked').val();
-	     	var value_2 = $('#value_2').val();
-	     	if (value_1 || value_2) {
+	     	if ($donation.val() != '') {
 	     		return true;
 	     	} else {
 	     		alert('Want to help us?? Please, select a value to donate!');
+	     		return false;
 	     	}
-	     	return false;
 	     });
+
+	     
 	     $(document).on('click','.donation-value .btn-group .btn',function(){
-	     	$('#value_2').val("");
+	     	$this = $(this);
+	     	$val = $this.find('input').val();
+	     	$donation.val($val);
+	     	$donation.attr('min',$val);
 	     });
-	     $(document).on('keypress','#value_2',function(){
-	     	var $val = $(this).val();
-	     	if (parseInt($val)>=11) {
-	     		console.log('teste');
-	     		$('.donation-value .btn-group .btn').each(function(){
+
+	     $(document).on('blur','#donation_value',function(){
+	     	var $this  = $(this);
+	     	var $val   = $(this).val();
+	     	
+	     	$buttons.each(function(i){
+	     		var $btn = $(this);
+	     		if ($btn.is('checked') === false) {
+	     			$donation.attr('min',11);
+	     		}
+	     	})
+
+	     	if (parseInt($val)>10) {
+	     		$buttons.each(function(){
 					$(this).button('reset').removeClass('active');
 				});
 	     	}
